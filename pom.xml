@@ -1,0 +1,45 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.mystia</groupId>
+  <artifactId>PumpkiNibble</artifactId>
+  <version>0.0.5-SNAPSHOT</version>
+  <name>PumpkiNibble</name>
+  <description>Lets you eat Pumpkin Seeds!</description>
+   <scm>
+    <developerConnection>scm:git:git@github.com:ron975/PumpkiNibble.git</developerConnection>
+    <connection>scm:git:git://github.com/ron975/PumpkiNibble.git</connection>
+     <url>https://github.com/ron975/PumpkiNibble/tree/master/</url>
+    </scm>
+  <build>
+    <sourceDirectory>src</sourceDirectory>
+    <plugins>
+      <plugin>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>2.3.2</version>
+        <configuration>
+          <source>1.6</source>
+          <target>1.6</target>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+  <repositories>
+    <repository>
+      <id>bukkit-repo</id>
+      <url>http://repo.bukkit.org/content/groups/public/</url>
+    </repository>
+    </repositories>
+  <dependencyManagement>
+  	<dependencies>
+  		<dependency>
+  			<groupId>org.bukkit</groupId>
+  			<artifactId>bukkit</artifactId>
+  			<version>1.3.1-R1.0</version>
+  		</dependency>
+  	</dependencies>
+  </dependencyManagement>
+  <ciManagement>
+  	<system>buildhive</system>
+  	<url>https://buildhive.cloudbees.com/job/ron975/job/PumpkiNibble/</url>
+  </ciManagement>
+</project>
