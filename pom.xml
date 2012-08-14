@@ -4,7 +4,6 @@
   <artifactId>pumpkinibble</artifactId>
   <version>0.0.5-SNAPSHOT</version>
   <name>PumpkiNibble</name>
-  <packaging>jar</packaging>
   <description>PumpkiNibble lets you eat pumpkin seeds in Minecraft!</description>
       <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -56,7 +55,7 @@
 		</dependency>
 </dependencies>
 	<ciManagement>
-		<url>https://buildhive.cloudbees.com/job/ron975/</url>
+		<url>https://ron975.ci.cloudbees.com/</url>
 		<system>jenkins</system>
 	</ciManagement>
 </project>
