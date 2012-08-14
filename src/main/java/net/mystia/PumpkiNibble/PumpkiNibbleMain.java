@@ -234,12 +234,12 @@ public class PumpkiNibbleMain extends JavaPlugin implements Listener
 	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args)
 	{
 		if (cmd.getName().equalsIgnoreCase("pumpkinibble"))
-		{ // If the player typed /basic then do the following...
+		{ 
 			sender.sendMessage("PumpkiNibble has reloaded it's configuration");
 			this.reloadConfig();
 			return true;
-		} // If this has happened the function will break and return true. if
-			// this hasn't happened the a value of false will be returned.
+		} 
+			
 		return false;
 	}
 
