@@ -1,0 +1,19 @@
+#PumpkiNibble
+#1 healAmount is half a heart or food
+#Duration is in seconds
+#Enabling trippy netherwart may get annoying.
+pumpkin:
+  enabled: true
+  healFoodAmount: 1
+  healHealthAmount: 0
+  itemAmount: 10
+cocoa:
+  enabled: true
+  healFoodAmount: 1
+  healHealthAmount: 0
+  itemAmount: 10
+netherwart:
+  enabled: false
+  duration: 300
+  itemAmount: 10
+  strength: 1

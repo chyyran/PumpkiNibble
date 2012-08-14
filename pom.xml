@@ -1,45 +1,52 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
-  <groupId>com.mystia</groupId>
-  <artifactId>PumpkiNibble</artifactId>
+  <groupId>net.mystia</groupId>
+  <artifactId>pumpkinibble</artifactId>
   <version>0.0.5-SNAPSHOT</version>
   <name>PumpkiNibble</name>
-  <description>Lets you eat Pumpkin Seeds!</description>
-   <scm>
-    <developerConnection>scm:git:git@github.com:ron975/PumpkiNibble.git</developerConnection>
-    <connection>scm:git:git://github.com/ron975/PumpkiNibble.git</connection>
-     <url>https://github.com/ron975/PumpkiNibble/tree/master/</url>
-    </scm>
+  <description>PumpkiNibble lets you eat pumpkin seeds in Minecraft!</description>
   <build>
-    <sourceDirectory>src</sourceDirectory>
-    <plugins>
-      <plugin>
-        <artifactId>maven-compiler-plugin</artifactId>
-        <version>2.3.2</version>
-        <configuration>
-          <source>1.6</source>
-          <target>1.6</target>
-        </configuration>
-      </plugin>
-    </plugins>
-  </build>
-  <repositories>
-    <repository>
-      <id>bukkit-repo</id>
-      <url>http://repo.bukkit.org/content/groups/public/</url>
-    </repository>
-    </repositories>
-  <dependencyManagement>
-  	<dependencies>
-  		<dependency>
-  			<groupId>org.bukkit</groupId>
-  			<artifactId>bukkit</artifactId>
-  			<version>1.3.1-R1.0</version>
-  		</dependency>
-  	</dependencies>
-  </dependencyManagement>
-  <ciManagement>
-  	<system>buildhive</system>
-  	<url>https://buildhive.cloudbees.com/job/ron975/job/PumpkiNibble/</url>
-  </ciManagement>
+        <sourceDirectory>${basedir}/src/main/java</sourceDirectory>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>2.3.2</version>
+                <configuration>
+                    <source>1.6</source>
+                    <target>1.6</target>
+                </configuration>
+            </plugin>
+        </plugins>
+        <finalName>PumpkiNibble</finalName>
+       <resources>
+            <resource>
+                <targetPath>.</targetPath>
+                <filtering>true</filtering>
+                <directory>${basedir}/src/main/resources</directory>
+                <includes>
+                    <include>plugin.yml</include>
+                    <include>config.yml</include>
+                </includes>
+            </resource>
+      </resources>
+   </build>
+<repositories>
+<repository>
+<id>bukkit-repo</id>
+<url>http://repo.bukkit.org/content/groups/public</url> 
+</repository>
+</repositories>  
+<dependencies>
+		<dependency>
+			<groupId>org.bukkit</groupId>
+			<artifactId>bukkit</artifactId>
+			<version>1.3.1-R1.0</version>
+			<scope>provided</scope>
+		</dependency>
+</dependencies>
+	<ciManagement>
+		<url>https://buildhive.cloudbees.com/job/ron975/job/PumpkiNibble/</url>
+		<system>buildhive</system>
+	</ciManagement>
 </project>

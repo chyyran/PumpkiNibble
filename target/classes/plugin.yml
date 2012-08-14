@@ -1,0 +1,28 @@
+name: PumpkiNibble
+main: net.mystia.PumpkiNibble.PumpkiNibbleMain
+version: 0.5
+description: Lets you nibble on pumpkin seeds. This plugin may lead to excessive and or compulsive consumption of pumpkin seeds in Minecraft and Real Life enviroments. ron975 is not liable for any addictions, injuries and pumpkin seed shortages relating to this plugin and pumpkin seeds.
+author: ron975
+permissions:
+  pumpkinibble.nibble:
+    description: Lets you nibble.
+    default: true
+    children:
+      pumpkinibble.nibble.pumpkin: true
+      pumpkinibble.nibble.cocoa: true
+      pumpkinibble.nibble.wart: true
+  pumpkinibble.nibble.pumpkin:
+      description: Lets you nibble on pumpkin seeds.
+  pumpkinibble.nibble.cocoa:
+      description: Lets you nibble on cocoa beans.
+  pumpkinibble.nibble.wart:
+      description: Lets you nibble on nether wart.
+  pumpkinibble.reload:
+      description: Lets you reload the config.
+      
+commands:
+   pumpkinibble:
+      description: Lets you reload the config.
+      usage: /pumpkinibble
+      permission: pumpkinibble.reload
+      permission-message: You can't reload PumpkiNibble's config
