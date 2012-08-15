@@ -55,7 +55,7 @@
 		</dependency>
 </dependencies>
 	<ciManagement>
-		<url>https://ron975.ci.cloudbees.com/</url>
-		<system>jenkins</system>
+		<url>http://travis-ci.org</url>
+		<system>travis</system>
 	</ciManagement>
 </project>
