@@ -1,5 +1,7 @@
 package net.mystia.PumpkiNibble;
 
+import java.util.List;
+
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
@@ -17,6 +19,10 @@ public class PumpkiNibbleListener implements Listener
 	@EventHandler
 	public void onPlayerClick(PlayerInteractEvent event)
 	{
+		int potionDuration = plugin.getConfig().getInt("pumpkin.potionDuration")*20;
+		int potionStrength = plugin.getConfig().getInt("pumpkin.potionStrength");
+		
+		List<String> potionEffects = plugin.getConfig().getStringList("pumpkin.potionEffects");
 		boolean ifEnabled = plugin.getConfig().getBoolean("pumpkin.enabled");
 		int healFoodAmount = plugin.getConfig().getInt("pumpkin.healFoodAmount");
 		int healHealthAmount = plugin.getConfig().getInt("pumpkin.healHealthAmount");
@@ -58,6 +64,9 @@ public class PumpkiNibbleListener implements Listener
 							int NewHealthLevel = HealthLevel + healHealthAmount;
 							player.setFoodLevel(NewFoodLevel);
 							player.setHealth(NewHealthLevel);
+							if (potionEffects.contains("regen")){
+								player.addPotionEffect(new PotionEffect(PotionEffectType.REGENERATION,potionDuration,potionStrength));
+							}
 
 						}
 						else

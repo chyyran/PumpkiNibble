@@ -7,13 +7,40 @@ pumpkin:
   healFoodAmount: 1
   healHealthAmount: 0
   itemAmount: 10
+  potionEffects:
+    - regen
+  potionStrength: 1
+  potionDuration: 10
 cocoa:
   enabled: true
   healFoodAmount: 1
   healHealthAmount: 0
   itemAmount: 10
+  potionEffects: []
+  potionStrength: 1
+  potionDuration: 10
 netherwart:
   enabled: false
-  duration: 300
   itemAmount: 10
-  strength: 1
+  potionEffects: 
+    - nausea
+  potionStrength: 1
+  potionDuration: 10
+validPotionEffects:
+  - regen
+  - heal
+  - harm
+  - poison
+  - hunger
+  - nightvision
+  - weakness
+  - jump
+  - resistance
+  - fireresist
+  - waterbreathing
+  - invisibility
+  - slowmine
+  - slow
+  - fastmine
+  - speed
+  - nausea
