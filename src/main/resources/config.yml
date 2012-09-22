@@ -9,23 +9,48 @@ pumpkin:
   itemAmount: 10
   potionEffects:
     - regen
-  potionStrength: 1
-  potionDuration: 10
+  potionStrength: 
+    regen: 1
+  potionDuration: 
+    regen: 1
+  messageOnEat: 'You nibbled on some seeds'
+  messageInsufficient: 'Too..little..seeds..must..satisfy..cravings!'
+  messageUnable: 'Doesn't seem like you're able to nibble on any seeds'
 cocoa:
   enabled: true
   healFoodAmount: 1
   healHealthAmount: 0
   itemAmount: 10
   potionEffects: []
-  potionStrength: 1
-  potionDuration: 10
+  potionStrength: []
+  potionDuration: []
+  messageOnEat: 'Mhm..Chocolatey'
+  messageInsufficient: 'MOAR CHOCOLATE NAO!!'
+  messageUnable: 'Doesn't seem like you can nibble any cocoa'
 netherwart:
   enabled: false
   itemAmount: 10
   potionEffects: 
     - nausea
-  potionStrength: 1
+  potionStrength: 
+    nausea: 10
+  messageOnEat: 'Eh he he he'
+  messageInsufficient: 'Need..more..'
+  messageUnable: 'You can't take &mdrugs &ruh.. nevermind.'
   potionDuration: 10
+milk:
+  enabled: false
+  itemAmount: 1
+  potionEffects: 
+    - nausea
+  potionStrength: 
+    nausea: 10
+  messageOnEat: 'Ooh, this milk is strong!'
+  messageInsufficient: 'Hit me again!'
+  messageUnable: 'Doesn't seem like you're legal age yet'
+  potionDuration: 10
+  
+  
 validPotionEffects:
   - regen
   - heal
@@ -44,3 +69,4 @@ validPotionEffects:
   - fastmine
   - speed
   - nausea
+  - blindness
