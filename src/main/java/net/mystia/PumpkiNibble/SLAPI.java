@@ -13,6 +13,12 @@ import java.io.ObjectOutputStream;
 	 */
 	public class SLAPI
 	{
+		/**
+		 * Save an object to file
+		 * @param obj
+		 * @param path
+		 * @throws Exception
+		 */
 		public static <T extends Object> void save(T obj,String path) throws Exception
 		{
 			ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(path));
@@ -20,6 +26,12 @@ import java.io.ObjectOutputStream;
 			oos.flush();
 			oos.close();
 		}
+		/**
+		 * Loads an object from file
+		 * @param path
+		 * @return
+		 * @throws Exception
+		 */
 		public static <T extends Object> T load(String path) throws Exception
 		{
 			ObjectInputStream ois = new ObjectInputStream(new FileInputStream(path));
