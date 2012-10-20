@@ -1,7 +1,9 @@
 package net.mystia.PumpkiNibble;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Set;
 
 import net.mystia.PumpkiNibble.PumpkiNibbleMain;
 /** PumpkiNibble
@@ -12,7 +14,7 @@ import net.mystia.PumpkiNibble.PumpkiNibbleMain;
  */
 public class PumpkiNibbleConfig {
 
-	public HashMap<String, List<String>> settings;
+	public HashMap<String, List<String>> settings = new HashMap<String, List<String>>();
 	private PumpkiNibbleMain plugin;
 
 	/**
@@ -21,7 +23,7 @@ public class PumpkiNibbleConfig {
 	 * @param effect String
 	 * @return potionDuration As Integer
 	 */
-	public Integer getPotionDuration(String type, String effect) {
+	public Integer getPotionDuration(Type type, String effect) {
 		Integer potionDuration = plugin.getConfig().getInt(
 				"items."+ type + ".potionDuration." + effect);
 		if (potionDuration == null) {
@@ -37,7 +39,7 @@ public class PumpkiNibbleConfig {
 	 * @param effect String
 	 * @return potionStrength As Integer
 	 */
-	public Integer getPotionStrength(String type, String effect) {
+	public Integer getPotionStrength(Type type, String effect) {
 		Integer potionStrength = plugin.getConfig().getInt(
 				"items."+type + ".potionStrength." + effect);
 		if (potionStrength == null) {
@@ -51,7 +53,7 @@ public class PumpkiNibbleConfig {
 	 * @param type String
 	 * @return potionEffects As List<String>
 	 */
-	public List<String> getPotionEffects(String type) {
+	public List<String> getPotionEffects(Type type) {
 		List<String> potionEffects = plugin.getConfig().getStringList(
 				"items."+type + ".potionEffects");
 		return potionEffects;
@@ -62,7 +64,7 @@ public class PumpkiNibbleConfig {
 	 * @param type String
 	 * @return eatMessage As String
 	 */
-	public String getEatMessage(String type) {
+	public String getEatMessage(Type type) {
 		String eatMessage = plugin.getConfig()
 				.getString("items."+ type + ".messageOnEat");
 		return eatMessage;
@@ -73,7 +75,7 @@ public class PumpkiNibbleConfig {
 	 * @param type String
 	 * @return insufficientMessage As String
 	 */
-	public String getInsufficientMessage(String type) {
+	public String getInsufficientMessage(Type type) {
 		String insufficientMessage = plugin.getConfig().getString(
 				"items."+type + ".messageInsufficient");
 		return insufficientMessage;
@@ -84,7 +86,7 @@ public class PumpkiNibbleConfig {
 	 * @param type String
 	 * @return healFood As Integer
 	 */
-	public Integer getHealFoodAmount(String type) {
+	public Integer getHealFoodAmount(Type type) {
 		Integer healFood = plugin.getConfig().getInt("items."+type + ".healFoodAmount");
 		if (healFood == null) {
 			healFood = 0;
@@ -97,7 +99,7 @@ public class PumpkiNibbleConfig {
 	 * @param type String
 	 * @return healHeath As Integer
 	 */
-	public Integer getHealHealthAmount(String type) {
+	public Integer getHealHealthAmount(Type type) {
 		Integer healHealth = plugin.getConfig().getInt(
 				"items."+type + ".healHealthAmount");
 		if (healHealth == null) {
@@ -111,7 +113,7 @@ public class PumpkiNibbleConfig {
 	 * @param type String
 	 * @return itemAmount AS Integer
 	 */
-	public Integer getItemAmount(String type) {
+	public Integer getItemAmount(Type type) {
 		Integer itemAmount = plugin.getConfig().getInt("items."+type + ".itemAmount");
 		if (itemAmount == null) {
 			itemAmount = 1;
@@ -135,7 +137,7 @@ public class PumpkiNibbleConfig {
 	 * @param type String
 	 * @return ifEnabled As boolean
 	 */
-	public boolean isEnabled(String type) {
+	public boolean isEnabled(Type type) {
 		boolean ifEnabled = plugin.getConfig().getBoolean("items."+type + ".enabled");
 		return ifEnabled;
 	}
@@ -144,7 +146,7 @@ public class PumpkiNibbleConfig {
 	 * @param type String
 	 * @return unableMessage As String
 	 */
-	public String getUnableMessage(String type){
+	public String getUnableMessage(Type type){
 		String unableMessage = plugin.getConfig().getString("items."+type+".messageUnable");
 		return unableMessage;
 	}
@@ -183,7 +185,17 @@ public class PumpkiNibbleConfig {
 	 * @return validItems As List<String>
 	 */
 	public List<String> getValidItems(){
-		List<String> validItems = plugin.getConfig().getStringList("items");
+		
+		Set<String> allItems = plugin.getConfig().getConfigurationSection("items").getKeys(false);
+		List<String> validItems = new ArrayList<String>(allItems);
+		for (String item : allItems){
+			if(!plugin.getConfig().getBoolean("items."+item+".enabled")){
+				if (validItems.contains(item)){
+					validItems.remove(item);
+				}
+				
+			}
+		}
 		return validItems;
 	}
 

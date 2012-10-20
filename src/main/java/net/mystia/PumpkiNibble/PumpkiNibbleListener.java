@@ -20,7 +20,7 @@ public class PumpkiNibbleListener implements Listener {
 	@EventHandler
 	public void onPlayerClickPumpkin(PlayerInteractEvent event) {
 		Player player = event.getPlayer();
-		String type = null;
+		Type type = null;
 		if (event.getAction() == Action.RIGHT_CLICK_AIR
 				|| (event.getAction() == Action.RIGHT_CLICK_BLOCK
 						&& event.getClickedBlock().getType() != Material.SOIL
@@ -32,38 +32,35 @@ public class PumpkiNibbleListener implements Listener {
 			/* Check for items */
 			if (player.getItemInHand() != null) {
 				if (player.getItemInHand().getType() == Material.PUMPKIN_SEEDS) {
-					type = "pumpkin";
+					type = Type.PUMPKIN;
 				} else {
 					if (player.getItemInHand().getType() == Material.INK_SACK
 							&& player.getItemInHand().getDurability() == 3) {
-						type = "cocoa";
+						type = Type.COCOA;
 					} else {
 						if (player.getItemInHand().getType() == Material.NETHER_STALK) {
-							type = "netherwart";
+							type = Type.NETHERWART;
 						} else {
 							if (player.getItemInHand().getType() == Material.MILK_BUCKET) {
-								type = "milk";
+								type = Type.MILK;
 							} else {
 								if (player.getItemInHand().getType() == Material.WHEAT) {
-									type = "wheat";
+									type = Type.WHEAT;
 								} else {
-									if (player.getItemInHand().getType() == Material.SPIDER_EYE) {
-										type = "spidereye";
-									} else {
 										if (player.getItemInHand().getType() == Material.FERMENTED_SPIDER_EYE) {
-											type = "fermentedeye";
+											type = Type.FERMENTED_EYE;
 										} else {
 											if (player.getItemInHand()
 													.getType() == Material.SLIME_BALL) {
-												type = "slimeball";
+												type = Type.SLIMEBALL;
 											} else {
 												if (player.getItemInHand()
 														.getType() == Material.SUGAR) {
-													type = "sugar";
+													type = Type.SUGAR;
 												} else {
 													if (player.getItemInHand()
 															.getType() == Material.SPECKLED_MELON) {
-														type = "goldmelon";
+														type = Type.GOLD_MELON;
 													} else {
 														/*
 														 * Sugarcane and
@@ -82,18 +79,18 @@ public class PumpkiNibbleListener implements Listener {
 															if (event
 																	.getClickedBlock()
 																	.getType() == Material.SUGAR_CANE) {
-																type = "sugarcane";
+																type = Type.SUGARCANE;
 
 															} else {
 																if (event
 																		.getClickedBlock()
 																		.getType() == Material.BROWN_MUSHROOM) {
-																	type = "brownmushroom";
+																	type = Type.BROWN_MUSHROOM;
 																} else {
 																	if (event
 																			.getClickedBlock()
 																			.getType() == Material.RED_MUSHROOM) {
-																		type = "redmushroom";
+																		type = Type.RED_MUSHROOM;
 																	}
 																}
 															}
@@ -124,7 +121,7 @@ public class PumpkiNibbleListener implements Listener {
 					int healFoodAmount = config.getHealFoodAmount(type);
 					int healHealthAmount = config.getHealHealthAmount(type);
 					int seedAmount = config.getItemAmount(type);
-					String permission = config.getPermission("nibble", type);
+					String permission = config.getPermission("nibble", type.toString());
 
 					if (!isEnabled) {
 						return;
@@ -133,6 +130,9 @@ public class PumpkiNibbleListener implements Listener {
 						if (player.hasPermission(permission)) {
 							if (!config.getPersonalSettings(
 									event.getPlayer().getName()).contains(type)) {
+								if (type.equals("milk")){
+									
+								}
 								if (player.getItemInHand().getAmount() >= seedAmount) {
 									int ItemAmount = player.getItemInHand()
 											.getAmount();
@@ -330,4 +330,4 @@ public class PumpkiNibbleListener implements Listener {
 			}
 		}
 	}
-}
+

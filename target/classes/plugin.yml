@@ -1,6 +1,6 @@
 name: PumpkiNibble
 main: net.mystia.PumpkiNibble.PumpkiNibbleMain
-version: 0.5
+version: 1.0
 description: Lets you nibble on pumpkin seeds. This plugin may lead to excessive and or compulsive consumption of pumpkin seeds in Minecraft and Real Life enviroments. ron975 is not liable for any addictions, injuries and pumpkin seed shortages relating to this plugin and pumpkin seeds.
 author: ron975
 permissions:
@@ -15,14 +15,31 @@ permissions:
       description: Lets you nibble on pumpkin seeds.
   pumpkinibble.nibble.cocoa:
       description: Lets you nibble on cocoa beans.
-  pumpkinibble.nibble.wart:
+  pumpkinibble.nibble.netherwart:
       description: Lets you nibble on nether wart.
-  pumpkinibble.reload:
+  pumpkinibble.general.toggle:
+      description: Lets you toggle whether you can nibble an item or not
+  pumpkinibble.admin
+    description: Allows all admin commands
+    default: op
+    children:
+      pumpkinibble.admin.reload: true
+      pumpkinibble.admin.toggle: true
+      pumpkinibble.admin.setamount: true
+      pumpkinibble.admin.seteffects: true
+      
+  pumpkinibble.admin.toggle:
+      description: Lets you toggle which items can be nibbled
+  pumpkinibble.admin.setamount:
+      description: Lets you set how many items can be nibbled at a time
+  pumpkinibble.admin.seteffects:
+      description: Lets you set which potion effects are applied and properties of effects
+  pumpkinibble.admin.reload:
       description: Lets you reload the config.
       
 commands:
    pumpkinibble:
-      description: Lets you reload the config.
-      usage: /pumpkinibble
-      permission: pumpkinibble.reload
-      permission-message: You can't reload PumpkiNibble's config
+      description: Main Command.
+      usage: /pumpkinibble 
+      permission: pumpkinibble.general.command
+      permission-message: You can't use the PumpkiNibble command

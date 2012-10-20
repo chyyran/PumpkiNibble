@@ -47,10 +47,11 @@ public class PumpkiNibbleCommand implements CommandExecutor {
 					if (args[1] == null) {
 						sender.sendMessage("You can toggle whether to eat");
 						sender.sendMessage(validItems);
+						
 
 					} else {
 						if (config.getValidItems().contains(args[2])){
-
+							
 							if (!config.setPersonalSettings(player.getName(),
 									args[2])) {
 								sender.sendMessage("Nibbling of" +args[2]+" enabled");
