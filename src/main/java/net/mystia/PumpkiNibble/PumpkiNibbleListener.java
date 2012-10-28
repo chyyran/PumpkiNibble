@@ -11,16 +11,16 @@ import org.bukkit.event.block.Action;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
-import net.mystia.PumpkiNibble.PumpkiNibbleConfig;
+import net.mystia.PumpkiNibble.PumpkiNibbleAPI;
 
 public class PumpkiNibbleListener implements Listener {
-	private PumpkiNibbleConfig config;
+	private PumpkiNibbleAPI config;
 
 	@SuppressWarnings("deprecation")
 	@EventHandler
 	public void onPlayerClickPumpkin(PlayerInteractEvent event) {
 		Player player = event.getPlayer();
-		Type type = null;
+		String type = null;
 		if (event.getAction() == Action.RIGHT_CLICK_AIR
 				|| (event.getAction() == Action.RIGHT_CLICK_BLOCK
 						&& event.getClickedBlock().getType() != Material.SOIL
@@ -32,35 +32,39 @@ public class PumpkiNibbleListener implements Listener {
 			/* Check for items */
 			if (player.getItemInHand() != null) {
 				if (player.getItemInHand().getType() == Material.PUMPKIN_SEEDS) {
-					type = Type.PUMPKIN;
+					type = "pumpkin";
+					System.out.println("[DEBUG] Player has selected Pumpkin Seeds.");
 				} else {
 					if (player.getItemInHand().getType() == Material.INK_SACK
 							&& player.getItemInHand().getDurability() == 3) {
-						type = Type.COCOA;
+						type = "cocoa";
 					} else {
 						if (player.getItemInHand().getType() == Material.NETHER_STALK) {
-							type = Type.NETHERWART;
+							type = "netherwart";
 						} else {
 							if (player.getItemInHand().getType() == Material.MILK_BUCKET) {
-								type = Type.MILK;
+								type = "milk";
 							} else {
 								if (player.getItemInHand().getType() == Material.WHEAT) {
-									type = Type.WHEAT;
+									type = "wheat";
 								} else {
+									if (player.getItemInHand().getType() == Material.SPIDER_EYE) {
+										type = "spidereye";
+									} else {
 										if (player.getItemInHand().getType() == Material.FERMENTED_SPIDER_EYE) {
-											type = Type.FERMENTED_EYE;
+											type = "fermentedeye";
 										} else {
 											if (player.getItemInHand()
 													.getType() == Material.SLIME_BALL) {
-												type = Type.SLIMEBALL;
+												type = "slimeball";
 											} else {
 												if (player.getItemInHand()
 														.getType() == Material.SUGAR) {
-													type = Type.SUGAR;
+													type = "sugar";
 												} else {
 													if (player.getItemInHand()
 															.getType() == Material.SPECKLED_MELON) {
-														type = Type.GOLD_MELON;
+														type = "goldmelon";
 													} else {
 														/*
 														 * Sugarcane and
@@ -79,18 +83,18 @@ public class PumpkiNibbleListener implements Listener {
 															if (event
 																	.getClickedBlock()
 																	.getType() == Material.SUGAR_CANE) {
-																type = Type.SUGARCANE;
+																type = "sugarcane";
 
 															} else {
 																if (event
 																		.getClickedBlock()
 																		.getType() == Material.BROWN_MUSHROOM) {
-																	type = Type.BROWN_MUSHROOM;
+																	type = "brownmushroom";
 																} else {
 																	if (event
 																			.getClickedBlock()
 																			.getType() == Material.RED_MUSHROOM) {
-																		type = Type.RED_MUSHROOM;
+																		type = "redmushroom";
 																	}
 																}
 															}
@@ -105,15 +109,22 @@ public class PumpkiNibbleListener implements Listener {
 
 							}
 						}
+					}
+				}
+			}
+						
 
 						/* Check if the type is a valid item or null */
-						if (type == null
+						/*if (type == null
 								|| !config.getValidItems().contains(type)) {
+							System.out.println("[DEBUG] "+type+" was not in database");
 							return;
-						}
+						}*/
 					}
 					String messageUnable = config.getUnableMessage(type);
+					System.out.println("[DEBUG] getUnableMessage "+messageUnable);
 					String messageOnEat = config.getEatMessage(type);
+					System.out.println("[DEBUG] getEatMessage "+messageUnable);
 					String messageInsufficient = config
 							.getInsufficientMessage(type);
 					List<String> potionEffects = config.getPotionEffects(type);
@@ -121,7 +132,7 @@ public class PumpkiNibbleListener implements Listener {
 					int healFoodAmount = config.getHealFoodAmount(type);
 					int healHealthAmount = config.getHealHealthAmount(type);
 					int seedAmount = config.getItemAmount(type);
-					String permission = config.getPermission("nibble", type.toString());
+					String permission = config.getPermission("nibble", type);
 
 					if (!isEnabled) {
 						return;
@@ -130,9 +141,6 @@ public class PumpkiNibbleListener implements Listener {
 						if (player.hasPermission(permission)) {
 							if (!config.getPersonalSettings(
 									event.getPlayer().getName()).contains(type)) {
-								if (type.equals("milk")){
-									
-								}
 								if (player.getItemInHand().getAmount() >= seedAmount) {
 									int ItemAmount = player.getItemInHand()
 											.getAmount();
@@ -328,6 +336,6 @@ public class PumpkiNibbleListener implements Listener {
 					}
 				}
 			}
-		}
-	}
+		
+	
 

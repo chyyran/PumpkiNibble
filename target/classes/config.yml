@@ -4,7 +4,6 @@
 #Enabling trippy netherwart may get annoying.
 #If you do not specify a potionDuration and potionStrength for every potion, you will get a
 #NullPointerException
-#Prefdfef
 items:
   pumpkin:
     enabled: true
@@ -19,7 +18,7 @@ items:
       regen: 1
     messageOnEat: 'You nibbled on some seeds'
     messageInsufficient: 'Too..little..seeds..must..satisfy..cravings!'
-    messageUnable: 'Doesn't seem like you're able to nibble on any seeds'
+    messageUnable: 'Doesnt seem like you are able to nibble on any seeds'
   cocoa:
     enabled: true
     healFoodAmount: 1
@@ -30,7 +29,7 @@ items:
     potionDuration: []
     messageOnEat: 'Mhm..Chocolatey'
     messageInsufficient: 'MOAR CHOCOLATE NAO!!'
-    messageUnable: 'Doesn't seem like you can nibble any cocoa'
+    messageUnable: 'Doesnt seem like you can nibble any cocoa'
   netherwart:
     enabled: false
     itemAmount: 10
@@ -40,7 +39,7 @@ items:
       nausea: 10
     messageOnEat: 'Eh he he he'
     messageInsufficient: 'Need..more..'
-    messageUnable: 'You can't take &mdrugs &ruh.. nevermind.'
+    messageUnable: 'You cant take &mdrugs &ruh.. nevermind.'
     potionDuration: 
       nausea: 10
   milk:
@@ -52,7 +51,7 @@ items:
       nausea: 10
     messageOnEat: 'Ooh, this milk is strong!'
     messageInsufficient: 'Hit me again!'
-    messageUnable: 'Doesn't seem like you're legal age yet'
+    messageUnable: 'Doesnt seem like youre legal age yet'
     potionDuration: 
       nausea: 10
   wheat:
@@ -121,7 +120,7 @@ items:
       regen: 60
     messageOnEat: 'Golden watermelon juice washes over you, rejuevinating you.'
     messageInsufficient: 'You feel as if you need more'
-    messageUnable: 'What? You can't afford to eat that!'
+    messageUnable: 'What? You cant afford to eat that!'
   sugarcane:
     enabled: false
     itemAmount: 8

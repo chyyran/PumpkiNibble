@@ -2,6 +2,7 @@ package net.mystia.PumpkiNibble;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
@@ -12,7 +13,7 @@ import net.mystia.PumpkiNibble.PumpkiNibbleMain;
  * @author ron975
  * 
  */
-public class PumpkiNibbleConfig {
+public class PumpkiNibbleAPI {
 
 	public HashMap<String, List<String>> settings = new HashMap<String, List<String>>();
 	private PumpkiNibbleMain plugin;
@@ -23,7 +24,7 @@ public class PumpkiNibbleConfig {
 	 * @param effect String
 	 * @return potionDuration As Integer
 	 */
-	public Integer getPotionDuration(Type type, String effect) {
+	public Integer getPotionDuration(String type, String effect) {
 		Integer potionDuration = plugin.getConfig().getInt(
 				"items."+ type + ".potionDuration." + effect);
 		if (potionDuration == null) {
@@ -39,7 +40,7 @@ public class PumpkiNibbleConfig {
 	 * @param effect String
 	 * @return potionStrength As Integer
 	 */
-	public Integer getPotionStrength(Type type, String effect) {
+	public Integer getPotionStrength(String type, String effect) {
 		Integer potionStrength = plugin.getConfig().getInt(
 				"items."+type + ".potionStrength." + effect);
 		if (potionStrength == null) {
@@ -53,7 +54,7 @@ public class PumpkiNibbleConfig {
 	 * @param type String
 	 * @return potionEffects As List<String>
 	 */
-	public List<String> getPotionEffects(Type type) {
+	public List<String> getPotionEffects(String type) {
 		List<String> potionEffects = plugin.getConfig().getStringList(
 				"items."+type + ".potionEffects");
 		return potionEffects;
@@ -64,7 +65,7 @@ public class PumpkiNibbleConfig {
 	 * @param type String
 	 * @return eatMessage As String
 	 */
-	public String getEatMessage(Type type) {
+	public String getEatMessage(String type) {
 		String eatMessage = plugin.getConfig()
 				.getString("items."+ type + ".messageOnEat");
 		return eatMessage;
@@ -75,7 +76,7 @@ public class PumpkiNibbleConfig {
 	 * @param type String
 	 * @return insufficientMessage As String
 	 */
-	public String getInsufficientMessage(Type type) {
+	public String getInsufficientMessage(String type) {
 		String insufficientMessage = plugin.getConfig().getString(
 				"items."+type + ".messageInsufficient");
 		return insufficientMessage;
@@ -86,7 +87,7 @@ public class PumpkiNibbleConfig {
 	 * @param type String
 	 * @return healFood As Integer
 	 */
-	public Integer getHealFoodAmount(Type type) {
+	public Integer getHealFoodAmount(String type) {
 		Integer healFood = plugin.getConfig().getInt("items."+type + ".healFoodAmount");
 		if (healFood == null) {
 			healFood = 0;
@@ -99,7 +100,7 @@ public class PumpkiNibbleConfig {
 	 * @param type String
 	 * @return healHeath As Integer
 	 */
-	public Integer getHealHealthAmount(Type type) {
+	public Integer getHealHealthAmount(String type) {
 		Integer healHealth = plugin.getConfig().getInt(
 				"items."+type + ".healHealthAmount");
 		if (healHealth == null) {
@@ -113,7 +114,7 @@ public class PumpkiNibbleConfig {
 	 * @param type String
 	 * @return itemAmount AS Integer
 	 */
-	public Integer getItemAmount(Type type) {
+	public Integer getItemAmount(String type) {
 		Integer itemAmount = plugin.getConfig().getInt("items."+type + ".itemAmount");
 		if (itemAmount == null) {
 			itemAmount = 1;
@@ -137,7 +138,7 @@ public class PumpkiNibbleConfig {
 	 * @param type String
 	 * @return ifEnabled As boolean
 	 */
-	public boolean isEnabled(Type type) {
+	public boolean isEnabled(String type) {
 		boolean ifEnabled = plugin.getConfig().getBoolean("items."+type + ".enabled");
 		return ifEnabled;
 	}
@@ -146,7 +147,7 @@ public class PumpkiNibbleConfig {
 	 * @param type String
 	 * @return unableMessage As String
 	 */
-	public String getUnableMessage(Type type){
+	public String getUnableMessage(String type){
 		String unableMessage = plugin.getConfig().getString("items."+type+".messageUnable");
 		return unableMessage;
 	}
@@ -184,20 +185,20 @@ public class PumpkiNibbleConfig {
 	 * Gets valid items from config as List<String>
 	 * @return validItems As List<String>
 	 */
-	public List<String> getValidItems(){
+	public Set<String> getValidItems(){
 		
 		Set<String> allItems = plugin.getConfig().getConfigurationSection("items").getKeys(false);
-		List<String> validItems = new ArrayList<String>(allItems);
+		Set<String> validItems = new HashSet<String>();
 		for (String item : allItems){
 			if(!plugin.getConfig().getBoolean("items."+item+".enabled")){
-				if (validItems.contains(item)){
-					validItems.remove(item);
+				validItems.add(item);
 				}
 				
 			}
-		}
 		return validItems;
-	}
+		}
+		
+	
 
 	/**
 	 * Parses List of valid items and returns string of items separated by separator parameter

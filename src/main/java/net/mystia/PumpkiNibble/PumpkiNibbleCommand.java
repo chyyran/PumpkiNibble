@@ -8,7 +8,7 @@ import org.bukkit.entity.Player;
 public class PumpkiNibbleCommand implements CommandExecutor {
 	
 	private PumpkiNibbleMain plugin;
-	private PumpkiNibbleConfig config;
+	private PumpkiNibbleAPI config;
 	public PumpkiNibbleCommand(PumpkiNibbleMain plugin){
 		this.plugin = plugin;
 	}
