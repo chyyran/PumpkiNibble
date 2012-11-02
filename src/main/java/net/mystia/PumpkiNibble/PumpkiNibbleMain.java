@@ -2,7 +2,6 @@ package net.mystia.PumpkiNibble;
 
 
 import java.io.File;
-import org.bukkit.Bukkit;
 import org.bukkit.event.Listener;
 import org.bukkit.plugin.java.JavaPlugin;
 import net.mystia.PumpkiNibble.PumpkiNibbleAPI;
@@ -14,25 +13,19 @@ import net.mystia.PumpkiNibble.PumpkiNibbleAPI;
  * @author ron975
  */
 public class PumpkiNibbleMain extends JavaPlugin implements Listener {
-	private PumpkiNibbleAPIDebug config;
-	
-
+	public static PumpkiNibbleMain p;
+	public static PumpkiNibblePersonalSettings personalSettings;
 	public void onEnable() {
-
+		p = this;
 		/*Checks for configuration and personal settings files*/
-		File configfile = new File(this.getDataFolder(), "config.yml");
-		if (!configfile.exists()) {
+		File PumpkiNibbleConfigFile = new File(this.getDataFolder(), "config.yml");
+		if (!PumpkiNibbleConfigFile.exists()) {
 			this.saveDefaultConfig();
 		}
-		File data = new File(this.getDataFolder(), "usersettings.dat");
-		if (data.exists()){
-			try {
-				/*Load data files using SLAPI*/
-				config.settings = SLAPI.load(this.getDataFolder()+ File.separator+"usersettings.dat");
-			} catch (Exception e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+		
+		File PumpkiNibblePersonalSettingsFile = new File(this.getDataFolder(), "personalsettings.yml");
+		if (!PumpkiNibblePersonalSettingsFile.exists()) {
+			personalSettings.saveDefaultConfig();
 		}
 
 		getLogger().info("PumpkiNibble(tm) 1.0 is nibbling on pumpkin seeds..");
@@ -46,64 +39,30 @@ public class PumpkiNibbleMain extends JavaPlugin implements Listener {
 						"for any addictions, injuries and pumpkin seed shortages relating to");
 		getLogger().warning("this plugin and pumpkin seeds.");
 		/*Register events*/
-		//Bukkit.getServer().getPluginManager()
-		//		.registerEvents(new PumpkiNibbleListener(), this);
+		getServer().getPluginManager()
+				.registerEvents(new PumpkiNibbleListener(), this);
 		
-		//getCommand("pumpkinibble").setExecutor(new PumpkiNibbleCommand(this));
+		getCommand("pumpkinibble").setExecutor(new PumpkiNibbleCommand(this));
 		
-		
-		try{
-		getLogger().info(config.getEatMessage("pumpkin"));
-		}catch (Exception ex){
-			ex.printStackTrace();
-			getConfig().set("items.pumpkin.messageOnEat", "[DEBUB] EAT MESSAGE");
-			saveConfig();
-		}
-		try
-		{
-			getLogger().info(config.getValidItemsAsString(","));
-		}
-		catch (Exception e)
-		{
-			// TODO Auto-generated catch block
-			
-			e.printStackTrace();
-		}
-		try
-		{
-			getLogger().info(config.getInsufficientMessage("pumpkin"));
-			getConfig().set("items.pumpkin.messageInsufficient", "[DEBUG] NOT ENOUGH MESSAGE");
-			saveConfig();
-		}
-		catch (Exception e)
-		{
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		try
-		{
-			getLogger().info(getConfig().getString("items.pumpkin.messageUnable"));
-		}
-		catch (Exception e)
-		{
-			// TODO Auto-generated catch block
-			getConfig().set("items.pumpkin.messageUnable", "[DEBUG] NOT ENOUGH MESSAGE");
-			saveConfig();
-			e.printStackTrace();
-		}
+		getLogger().info(PumpkiNibbleAPI.getEatMessage(PumpkiNibbleType.PUMPKIN));
 		
 	}
+		
+		
 
+		
+
+	
 
 	public void onDisable() {
 		getLogger().info("PumpkiNibble has been disabled.");
 		getLogger().info("No more nibbling on seeds ");
-		/*try {
-			SLAPI.save(config.settings, this.getDataFolder()+File.separator+"usersettings.dat");
+		try {
+			SLAPI.save(PumpkiNibbleAPI.settings, this.getDataFolder()+File.separator+"usersettings.dat");
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}*/
+		}
 		
 	}
 }

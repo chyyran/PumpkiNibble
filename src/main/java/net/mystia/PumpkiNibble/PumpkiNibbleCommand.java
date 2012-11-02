@@ -8,7 +8,6 @@ import org.bukkit.entity.Player;
 public class PumpkiNibbleCommand implements CommandExecutor {
 	
 	private PumpkiNibbleMain plugin;
-	private PumpkiNibbleAPI config;
 	public PumpkiNibbleCommand(PumpkiNibbleMain plugin){
 		this.plugin = plugin;
 	}
@@ -28,7 +27,7 @@ public class PumpkiNibbleCommand implements CommandExecutor {
 		if (cmd.getName().equalsIgnoreCase("pumpkinibble")) {
 			if (args[0] == "reload") {
 
-				if (sender.hasPermission(config.getPermission("general",
+				if (sender.hasPermission(PumpkiNibbleAPI.getPermission("general",
 						"command"))) {
 
 				}
@@ -43,16 +42,16 @@ public class PumpkiNibbleCommand implements CommandExecutor {
 					sender.sendMessage("This command can only be run by a player");
 					return true;
 				} else {
-					String validItems = config.getValidItemsAsString(" ,");
+					String validItems = PumpkiNibbleAPI.getValidItemsAsString(" ,");
 					if (args[1] == null) {
 						sender.sendMessage("You can toggle whether to eat");
 						sender.sendMessage(validItems);
 						
 
 					} else {
-						if (config.getValidItems().contains(args[2])){
+						if (PumpkiNibbleAPI.getValidItems().contains(args[2])){
 							
-							if (!config.setPersonalSettings(player.getName(),
+							if (!PumpkiNibbleAPI.setPersonalSettings(player.getName(),
 									args[2])) {
 								sender.sendMessage("Nibbling of" +args[2]+" enabled");
 							} else {
