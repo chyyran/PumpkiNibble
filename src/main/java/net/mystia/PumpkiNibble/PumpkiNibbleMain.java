@@ -57,12 +57,7 @@ public class PumpkiNibbleMain extends JavaPlugin implements Listener {
 	public void onDisable() {
 		getLogger().info("PumpkiNibble has been disabled.");
 		getLogger().info("No more nibbling on seeds ");
-		try {
-			SLAPI.save(PumpkiNibbleAPI.settings, this.getDataFolder()+File.separator+"usersettings.dat");
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		personalSettings.saveCustomConfig();
 		
 	}
 }

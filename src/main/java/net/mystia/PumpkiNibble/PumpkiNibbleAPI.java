@@ -151,7 +151,7 @@ public class PumpkiNibbleAPI {
 		return unableMessage;
 	}
 	/**
-	 * Gets personal toggle settings from HashMap
+	 * Gets personal toggle settings from YAMLConfiguration
 	 * @param playername
 	 * @return personalSettings As List<String>
 	 */
@@ -162,7 +162,7 @@ public class PumpkiNibbleAPI {
 	}
 	
 	/**
-	 * Sets personal settings to HashMap and returns whether item is enabled or disabled
+	 * Sets personal settings to YAMLConfiguration and returns whether item is enabled or disabled
 	 * @param playername
 	 * @param setting
 	 * @return boolean

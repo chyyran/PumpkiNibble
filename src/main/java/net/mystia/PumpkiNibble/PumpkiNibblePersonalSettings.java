@@ -33,7 +33,7 @@ public class PumpkiNibblePersonalSettings
 	    }
 	    return personalSettings;
 	}
-	public void savepersonalSettings() {
+	public void saveCustomConfig() {
 	    if (personalSettings == null || personalSettingsFile == null) {
 	    return;
 	    }
