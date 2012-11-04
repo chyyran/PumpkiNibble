@@ -2,7 +2,7 @@
 #1 healAmount is half a heart or food
 #Duration is in seconds
 #Enabling trippy netherwart may get annoying.
-#If you do not specify a potionDuration and potionStrength for every potion, you will get a
+#If you do not specify a duration and dtrength for every potion, you will get a
 #NullPointerException
 items:
   pumpkin:
@@ -11,11 +11,9 @@ items:
     healHealthAmount: 0
     itemAmount: 10
     potionEffects:
-      - regen
-    potionStrength: 
-      regen: 1
-    potionDuration: 
-      regen: 1
+      regen:
+        strength: 1
+        duration: 1
     messageOnEat: 'You nibbled on some seeds'
     messageInsufficient: 'Too..little..seeds..must..satisfy..cravings!'
     messageUnable: 'Doesnt seem like you are able to nibble on any seeds'
@@ -34,34 +32,28 @@ items:
     enabled: false
     itemAmount: 10
     potionEffects: 
-      - nausea
-    potionStrength: 
-      nausea: 10
+      nausea:
+        strength: 10
+        duration: 10
     messageOnEat: 'Eh he he he'
     messageInsufficient: 'Need..more..'
     messageUnable: 'You cant take &mdrugs &ruh.. nevermind.'
-    potionDuration: 
-      nausea: 10
   milk:
     enabled: false
     itemAmount: 1
     potionEffects: 
-      - nausea
-    potionStrength: 
-      nausea: 10
+      nausea:
+        strength: 5
+        duration: 10
     messageOnEat: 'Ooh, this milk is strong!'
     messageInsufficient: 'Hit me again!'
     messageUnable: 'Doesnt seem like youre legal age yet'
-    potionDuration: 
-      nausea: 10
   wheat:
     enabled: true
     healFoodAmount: 1
     healHealthAmount: 0
     itemAmount: 10
     potionEffects: []
-    potionStrength: []
-    potionDuration: []
     messageOnEat: 'Bleh, bland wheat'
     messageInsufficient: 'You must be hungry, eat some more wheat'
     messageUnable: 'No wheat for you'
@@ -69,11 +61,12 @@ items:
     enabled: false
     itemAmount: 1
     potionEffects: 
-      - poison
-      - nausea
-    potionStrength: 
-      poison: 2
-      nausea: 10
+      poison:
+        strength: 10
+        duration: 2
+      nausea:
+        strength: 10
+        duration: 2
     messageOnEat: 'Just disgusting, egh'
     messageInsufficient: 'Nope'
     messageUnable: 'Why would you want to eat this anyways?'
@@ -84,40 +77,34 @@ items:
     enabled: false
     itemAmount: 1
     potionEffects: 
-      - jump
-    potionStrength: 
-      jump: 2
+      jump:
+        strength: 2
+        duration: 10
     messageOnEat: 'Slimy, but you feel a bounce in your step'
     messageInsufficient: 'Slimy, but a bit sweet. You search for more'
     messageUnable: 'The slimeball splatters on your face'
-    potionDuration: 
-      jump: 10
   sugar:
     enabled: false
     itemAmount: 16
     potionEffects: 
-      - jump
-      - speed
-    potionStrength: 
-      jump: 5
-      speed: 5
+      jump:
+        strength: 5
+        duration: 60
+      speed:
+        strength: 5
+        duration: 60
     messageOnEat: 'SUGAR RUSH!'
     messageInsufficient: 'Your odd sugar cravings have not been realised'
     messageUnable: 'No raw sugar for you. Its bad for your teeth'
-    potionDuration: 
-      jump: 60
-      speed: 60
   goldmelon:
     enabled: true
     healFoodAmount: 0
     healHealthAmount: 20
     itemAmount: 1
     potionEffects:
-      - regen
-    potionStrength: 
-      regen: 10
-    potionDuration: 
-      regen: 60
+      regen:
+        strength: 4
+        duration: 60
     messageOnEat: 'Golden watermelon juice washes over you, rejuevinating you.'
     messageInsufficient: 'You feel as if you need more'
     messageUnable: 'What? You cant afford to eat that!'
@@ -125,47 +112,41 @@ items:
     enabled: false
     itemAmount: 8
     potionEffects: 
-      - jump
-      - speed
-    potionStrength: 
-      jump: 3
-      speed: 3
+      jump:
+        strength: 1
+        duration: 20
+      speed:
+        strength: 1
+        duration: 20 
     messageOnEat: 'Chewing sugarcane is awesome!'
     messageInsufficient: 'You need more to get enough sugarcane juice out of it'
     messageUnable: 'No sugar for you. Its bad for your teeth'
-    potionDuration: 
-      jump: 20
-      speed: 20
   brownmushroom:
     enabled: false
     itemAmount: 1
     potionEffects: 
-      - poison
-      - nausea
-    potionStrength: 
-      poison: 2
-      nausea: 10
+      poison:
+        strength: 2
+        duration: 10
+      nausea:
+        strength: 10
+        duration: 10
     messageOnEat: 'Brown mushrooms are poisonous unless cooked'
     messageInsufficient: 'Nope'
     messageUnable: 'Why would you want to eat this anyways?'
-    potionDuration: 
-      poison: 10
-      nausea: 10
   redmushroom:
     enabled: false
     itemAmount: 1
     potionEffects: 
-      - poison
-      - nausea
-    potionStrength: 
-      poison: 2
-      nausea: 10
+      poison:
+        strength: 2
+        duration: 10
+      nausea:
+        strength: 10
+        duration: 10
     messageOnEat: 'Red mushrooms are poisonous unless coocked'
     messageInsufficient: 'Nope'
     messageUnable: 'Why would you want to eat this anyways?'
-    potionDuration: 
-      poison: 10
-      nausea: 10
 #Do not change
 #This section is for reference only.
 validPotionEffects:

@@ -1,6 +1,5 @@
 package net.mystia.PumpkiNibble;
 
-import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -14,18 +13,15 @@ import java.util.Set;
 public class PumpkiNibbleAPI {
 
 
-
-	public static HashMap<String, List<String>> settings = new HashMap<String, List<String>>();
-
 	/**
-	 * Gets potion durations from PumpkiNibbleMain.p.getConfig().yml
+	 * Gets potion durations from config.yml
 	 * @param type String
 	 * @param effect String
 	 * @return potionDuration As Integer
 	 */
 	public static Integer getPotionDuration(String type, String effect) {
 		Integer potionDuration = PumpkiNibbleMain.p.getConfig().getInt(
-				"items."+ type + ".potionDuration." + effect);
+				"items."+ type + ".potionEffects." + effect+".duration");
 		if (potionDuration == null) {
 			potionDuration = 0;
 		}
@@ -34,14 +30,13 @@ public class PumpkiNibbleAPI {
 	}
 
 	/**
-	 * Gets potion strength from PumpkiNibbleMain.p.getConfig().yml
+	 * Gets potion strength from config.yml
 	 * @param type String
 	 * @param effect String
 	 * @return potionStrength As Integer
 	 */
 	public static Integer getPotionStrength(String type, String effect) {
-		Integer potionStrength = PumpkiNibbleMain.p.getConfig().getInt(
-				"items."+type + ".potionStrength." + effect);
+		Integer potionStrength = PumpkiNibbleMain.p.getConfig().getInt("items."+type+".potionEffects."+effect+"strength");
 		if (potionStrength == null) {
 			potionStrength = 0;
 		}
@@ -53,9 +48,8 @@ public class PumpkiNibbleAPI {
 	 * @param type String
 	 * @return potionEffects As List<String>
 	 */
-	public static List<String> getPotionEffects(String type) {
-		List<String> potionEffects = PumpkiNibbleMain.p.getConfig().getStringList(
-				"items."+type + ".potionEffects");
+	public static Set<String> getPotionEffects(String type) {
+		Set<String> potionEffects = PumpkiNibbleMain.p.getConfig().getConfigurationSection("items."+type+".potionEffects").getKeys(false);
 		return potionEffects;
 	}
 

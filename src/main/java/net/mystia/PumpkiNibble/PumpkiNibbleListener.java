@@ -1,6 +1,6 @@
 package net.mystia.PumpkiNibble;
 
-import java.util.List;
+import java.util.Set;
 
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
@@ -147,7 +147,7 @@ public class PumpkiNibbleListener implements Listener
 		String messageOnEat = PumpkiNibbleAPI.getEatMessage(type);
 
 		String messageInsufficient = PumpkiNibbleAPI.getInsufficientMessage(type);
-		List<String> potionEffects = PumpkiNibbleAPI.getPotionEffects(type);
+		Set<String> potionEffects = PumpkiNibbleAPI.getPotionEffects(type);
 		boolean isEnabled = PumpkiNibbleAPI.isEnabled(type);
 		int healFoodAmount = PumpkiNibbleAPI.getHealFoodAmount(type);
 		int healHealthAmount = PumpkiNibbleAPI.getHealHealthAmount(type);
