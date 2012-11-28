@@ -1,3 +1,4 @@
 target/
 bin/
 *.class
+src/main/resources/BackupCode

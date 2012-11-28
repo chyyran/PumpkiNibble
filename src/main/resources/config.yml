@@ -1,22 +1,47 @@
-#PumpkiNibble
-#1 healAmount is half a heart or food
-#Duration is in seconds
-#Enabling trippy netherwart may get annoying.
-#If you do not specify a duration and dtrength for every potion, you will get a
-#NullPointerException
+#PumpkiNibble Config File
+#To define new items, follow this template
+#=========================================
+#pumpkin: Defines permission name, not quite as important user-wise, can be anything you want
+#id: Defines item ID, be very careful
+#data: Defines data value, default items have a value of zero, other items use data values (such as cocoa beans)
+#enabled: Whether this is enabled or not
+#takeInsufficientItems: Do we want the item to be taken if we don't have enough to "eat" it?
+#healFoodAmount: Amount of the food bar to heal. One is half a "drumstick"
+#healHealthAmount: Amount of hearts to heal. One is half a heart
+#itemAmount: How much is the minimum amount of items? 
+#potionEffects: List of potionEffects, see examples, duration is in seconds.
+#potionEffects use the internal Bukkit names, see validPotionEffects
+#messageOnEat: Message that is displayed when item is eaten
+#messageInsufficient: Message that is displayed when not enough items are eaten at once
+#messageUnable: Permissions message, when user is not allowed to eat items
+#blacklist: List of blocks, that, when clicked will not trigger eating, such as farmland, doors, etc. It is recommended you copy the section from the defaults.
+
+
 items:
   pumpkin:
+    id: 361
+    data: 0
     enabled: true
+    takeInsufficientItems: false
     healFoodAmount: 1
     healHealthAmount: 0
     itemAmount: 10
     potionEffects:
-      regen:
+      regeneration:
         strength: 1
-        duration: 1
+        duration: 10
     messageOnEat: 'You nibbled on some seeds'
     messageInsufficient: 'Too..little..seeds..must..satisfy..cravings!'
     messageUnable: 'Doesnt seem like you are able to nibble on any seeds'
+    blacklist:
+      - 60 
+      - 54
+      - 64
+      - 77
+      - 143
+      - 69
+      - 96
+      - 107
   cocoa:
     enabled: true
     healFoodAmount: 1
@@ -32,7 +57,7 @@ items:
     enabled: false
     itemAmount: 10
     potionEffects: 
-      nausea:
+      confusion:
         strength: 10
         duration: 10
     messageOnEat: 'Eh he he he'
@@ -42,7 +67,7 @@ items:
     enabled: false
     itemAmount: 1
     potionEffects: 
-      nausea:
+      confusion:
         strength: 5
         duration: 10
     messageOnEat: 'Ooh, this milk is strong!'
@@ -64,15 +89,12 @@ items:
       poison:
         strength: 10
         duration: 2
-      nausea:
+      confusion:
         strength: 10
         duration: 2
     messageOnEat: 'Just disgusting, egh'
     messageInsufficient: 'Nope'
     messageUnable: 'Why would you want to eat this anyways?'
-    potionDuration: 
-      poison: 10
-      nausea: 10
   slimeball:
     enabled: false
     itemAmount: 1
@@ -102,7 +124,7 @@ items:
     healHealthAmount: 20
     itemAmount: 1
     potionEffects:
-      regen:
+      regeneration:
         strength: 4
         duration: 60
     messageOnEat: 'Golden watermelon juice washes over you, rejuevinating you.'
@@ -128,7 +150,7 @@ items:
       poison:
         strength: 2
         duration: 10
-      nausea:
+      confusion:
         strength: 10
         duration: 10
     messageOnEat: 'Brown mushrooms are poisonous unless cooked'
@@ -141,7 +163,7 @@ items:
       poison:
         strength: 2
         duration: 10
-      nausea:
+      confusion:
         strength: 10
         duration: 10
     messageOnEat: 'Red mushrooms are poisonous unless coocked'
@@ -150,22 +172,24 @@ items:
 #Do not change
 #This section is for reference only.
 validPotionEffects:
-  - regen
-  - heal
-  - harm
-  - poison
-  - hunger
-  - nightvision
-  - weakness
-  - jump
-  - resistance
-  - fireresist
-  - waterbreathing
-  - invisibility
-  - slowmine
-  - slow
-  - fastmine
-  - speed
-  - nausea
   - blindness
+  - confusion
+  - damage_resistance
+  - fast_digging
+  - fire_resistance
+  - harm
+  - heal
+  - hunger
+  - increase_damage
+  - invisibility
+  - jump
+  - night_vision
+  - poison
+  - regeneration
+  - slow
+  - slow_digging
+  - speed
+  - water_breathing
+  - weakness
+  - wither
   

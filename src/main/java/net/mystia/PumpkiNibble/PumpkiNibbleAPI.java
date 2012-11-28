@@ -1,8 +1,11 @@
 package net.mystia.PumpkiNibble;
 
+
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+
+
 
 /** PumpkiNibble
  * PumpkiNibbleConfig gets and sets the configuration options for the plugin
@@ -12,7 +15,42 @@ import java.util.Set;
  */
 public class PumpkiNibbleAPI {
 
+	
+	public static Boolean removeItems(String type){
+		return PumpkiNibbleMain.p.getConfig().getBoolean("items."+type+".takeInsufficientItems");
+	}
+	
 
+	public static List<Integer> getBlacklistedBlocks(String type){
+
+		return PumpkiNibbleMain.p.getConfig().getIntegerList("items."+type+".blacklist");
+	}
+	
+	public static Boolean checkType(String type){
+		if(!PumpkiNibbleMain.p.getConfig().getConfigurationSection("items").getKeys(false).contains(type)){
+			return false;
+		}else{
+			return isEnabled(type);
+
+		}
+		
+	}
+
+	public static int getData(String type){
+		return PumpkiNibbleMain.p.getConfig().getInt("items."+type+".data");
+	}
+	
+	
+	public static String getType(int id){
+	
+		for (String s : PumpkiNibbleMain.p.getConfig().getConfigurationSection("items").getKeys(false)){
+			if (PumpkiNibbleMain.p.getConfig().getInt("items."+s+".id") == id){
+				return s;
+			}
+		}
+	
+		return String.valueOf(id);
+	}
 	/**
 	 * Gets potion durations from config.yml
 	 * @param type String
@@ -21,11 +59,8 @@ public class PumpkiNibbleAPI {
 	 */
 	public static Integer getPotionDuration(String type, String effect) {
 		Integer potionDuration = PumpkiNibbleMain.p.getConfig().getInt(
-				"items."+ type + ".potionEffects." + effect+".duration");
-		if (potionDuration == null) {
-			potionDuration = 0;
-		}
-
+				"items."+ type + ".potionEffects." + effect+".duration")*20;
+		
 		return potionDuration;
 	}
 
@@ -132,7 +167,7 @@ public class PumpkiNibbleAPI {
 	 * @return ifEnabled As boolean
 	 */
 	public static boolean isEnabled(String type) {
-		boolean ifEnabled = PumpkiNibbleMain.p.getConfig().getBoolean("items."+type + ".enabled");
+		boolean ifEnabled = PumpkiNibbleMain.p.getConfig().getBoolean("items."+type+".enabled");
 		return ifEnabled;
 	}
 	/**
@@ -144,36 +179,15 @@ public class PumpkiNibbleAPI {
 		String unableMessage = PumpkiNibbleMain.p.getConfig().getString("items."+type+".messageUnable");
 		return unableMessage;
 	}
-	/**
-	 * Gets personal toggle settings from YAMLConfiguration
-	 * @param playername
-	 * @return personalSettings As List<String>
-	 */
-	public static List<String> getPersonalSettings(String playername){
-		List<String> personalSettings = PumpkiNibbleMain.personalSettings.getConfig().getStringList("personalSettings."+playername);
-		return personalSettings;
-		
-	}
-	
+
 	/**
 	 * Sets personal settings to YAMLConfiguration and returns whether item is enabled or disabled
 	 * @param playername
 	 * @param setting
 	 * @return boolean
 	 */
-	public static boolean setPersonalSettings(String playername, String setting){
-		List<String> personalSettings = PumpkiNibbleMain.personalSettings.getConfig().getStringList("personalSettings."+playername);
-		if (!personalSettings.contains(setting)){
-		personalSettings.add(setting);
-		PumpkiNibbleMain.personalSettings.getConfig().set("personalSettings."+playername, personalSettings);
-		return true;
-		}else{
-		personalSettings.remove(setting);
-		PumpkiNibbleMain.personalSettings.getConfig().set("personalSettings."+playername, personalSettings);
-		return false;
-		}
-		
-	}
+
+	
 	/**
 	 * Gets valid items from config as List<String>
 	 * @return validItems As List<String>
