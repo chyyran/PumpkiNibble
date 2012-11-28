@@ -19,8 +19,9 @@
 
 items:
   pumpkin:
-    id: 361
-    data: 0
+    data: 
+      id: 361
+      dmg: 0
     enabled: true
     takeInsufficientItems: false
     healFoodAmount: 1

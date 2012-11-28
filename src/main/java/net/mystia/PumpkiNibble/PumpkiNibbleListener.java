@@ -28,11 +28,11 @@ public class PumpkiNibbleListener implements Listener
 			if (player.getItemInHand() != null)
 			{
 
-				type = PumpkiNibbleAPI.getType(player.getItemInHand().getTypeId());
+				type = PumpkiNibbleAPI.getType(player.getItemInHand().getTypeId(), (int) player.getItemInHand().getDurability());
 				System.out.println(type);
 				System.out.println(player.getItemInHand().getType());
 			}
-
+			/*Check if type exists or is null*/
 			if (!PumpkiNibbleAPI.checkType(type))
 			{
 				System.out.println(player.getItemInHand().getType());
@@ -40,10 +40,7 @@ public class PumpkiNibbleListener implements Listener
 
 				return;
 			}
-			/*Check for data values (Mainly for cocoa beans)*/
-			if (player.getItemInHand().getDurability() != PumpkiNibbleAPI.getData(type)){
-				return;
-			}
+
 			/* Check if the clicked block is blacklisted for the item */
 			if (event.getClickedBlock() != null && PumpkiNibbleAPI.getBlacklistedBlocks(type).contains(event.getClickedBlock().getTypeId()))
 			{
