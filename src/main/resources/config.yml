@@ -122,7 +122,7 @@ items:
     messageOnEat: 'The miraculous powers of the carrot flow into you, as you see the world with sharper eyes, and feel your body vanish'
     messageInsufficient: 'You bite into the carrot, but the infused gold render it inedible. Reverse logic dictates you must eat more'
     messageUnable: 'The powers of the carrot may not be bestowed upon you, young one'
-        blacklist: 
+    blacklist: 
       - 54
       - 64
       - 77
