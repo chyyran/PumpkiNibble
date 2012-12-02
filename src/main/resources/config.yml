@@ -87,8 +87,8 @@ items:
       confusion:
         strength: 6
         duration: 300
-    messageOnEat: '&kYo&ru are s&3o fli&kpp&4in&ig hi&2gh  
-    messageInsufficient: 'Wasn't I supposed to start hallucinating? Maybe try a dose of 15'
+    messageOnEat: '&kYo&ru are s&3o fli&kpp&4in&ig hi&2gh'
+    messageInsufficient: 'Wasn''t I supposed to start hallucinating? Maybe try a dose of 15'
     messageUnable: 'You don''t want to do drugs'
     blacklist: 
       - 54
