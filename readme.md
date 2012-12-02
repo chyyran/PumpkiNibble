@@ -22,3 +22,8 @@ You will need to remove and redo your configuration.
 
 See more at 
 http://dev.bukkit.org/server-mods/pumpkinibble/
+
+Javadocs
+========
+Javadocs are included in the source, as well as
+http://ron975.github.com/PumpkiNibble-Javadoc/
