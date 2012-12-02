@@ -1,7 +1,24 @@
 PumpkiNibble
 =============
+PumpkiNibble lets you and your players eat Pumpkin Seeds and more in Minecraft. 
+Everything is configurable!
 
-Ever had Pumpkin Seeds in real life? Now you can nibble on them in Minecraft as well! You can also nibble on cocoa beans, and netherwarts, which gives a hallucination effect. Nearly everything is configurable.
+Compiling
+=========
+Check out this repository, then do
+'''mvn install pumpkinibble'''
+An installation of Maven 2 or higher is required
+
+Development Builds
+==================
+PumpkiNibble uses Maven and BuildHive to handle automatic builds
+You can download the latest builds from
+https://buildhive.cloudbees.com/job/ron975/job/PumpkiNibble
+
+Migrating from version 0.1
+==========================
+Since PumpkiNibble 1.0, PumpkiNibble uses a completely different configuration file. 
+You will need to remove and redo your configuration. 
 
 See more at 
 http://dev.bukkit.org/server-mods/pumpkinibble/

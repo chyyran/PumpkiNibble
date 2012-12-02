@@ -24,7 +24,7 @@ items:
       dmg: 0
     enabled: true
     takeInsufficientItems: false
-    healFoodAmount: 1
+    healFoodAmount: 3
     healHealthAmount: 0
     itemAmount: 10
     potionEffects:
@@ -42,134 +42,226 @@ items:
       - 143
       - 69
       - 96
+      - 61
+      - 62
       - 107
+      - 117
+      - 145
   cocoa:
+    data:
+      id: 351
+      dmg: 3
     enabled: true
-    healFoodAmount: 1
-    healHealthAmount: 0
-    itemAmount: 10
+    takeInsufficientItems: false
+    healFoodAmount: 2
+    healHealthAmount: 1
+    itemAmount: 2
     potionEffects: []
-    potionStrength: []
-    potionDuration: []
-    messageOnEat: 'Mhm..Chocolatey'
-    messageInsufficient: 'MOAR CHOCOLATE NAO!!'
-    messageUnable: 'Doesnt seem like you can nibble any cocoa'
+    messageOnEat: 'You ate some chocolate'
+    messageInsufficient: 'You eat some chocolate, but unhuman cravings threaten to ravage your cocoa bean stock'
+    messageUnable: 'You are not allowed to eat cocoa beans'
+    blacklist:
+      - 60 
+      - 54
+      - 64
+      - 77
+      - 143
+      - 69
+      - 96
+      - 61
+      - 62
+      - 107
+      - 17
+      - 117
+      - 145
   netherwart:
+    data:
+      id: 372
+      dmg: 0
     enabled: false
-    itemAmount: 10
-    potionEffects: 
-      confusion:
-        strength: 10
-        duration: 10
-    messageOnEat: 'Eh he he he'
-    messageInsufficient: 'Need..more..'
-    messageUnable: 'You cant take &mdrugs &ruh.. nevermind.'
-  milk:
-    enabled: false
-    itemAmount: 1
-    potionEffects: 
-      confusion:
-        strength: 5
-        duration: 10
-    messageOnEat: 'Ooh, this milk is strong!'
-    messageInsufficient: 'Hit me again!'
-    messageUnable: 'Doesnt seem like youre legal age yet'
-  wheat:
-    enabled: true
-    healFoodAmount: 1
-    healHealthAmount: 0
-    itemAmount: 10
-    potionEffects: []
-    messageOnEat: 'Bleh, bland wheat'
-    messageInsufficient: 'You must be hungry, eat some more wheat'
-    messageUnable: 'No wheat for you'
-  fermentedeye:
-    enabled: false
-    itemAmount: 1
-    potionEffects: 
-      poison:
-        strength: 10
-        duration: 2
-      confusion:
-        strength: 10
-        duration: 2
-    messageOnEat: 'Just disgusting, egh'
-    messageInsufficient: 'Nope'
-    messageUnable: 'Why would you want to eat this anyways?'
-  slimeball:
-    enabled: false
-    itemAmount: 1
-    potionEffects: 
-      jump:
-        strength: 2
-        duration: 10
-    messageOnEat: 'Slimy, but you feel a bounce in your step'
-    messageInsufficient: 'Slimy, but a bit sweet. You search for more'
-    messageUnable: 'The slimeball splatters on your face'
-  sugar:
-    enabled: false
-    itemAmount: 16
-    potionEffects: 
-      jump:
-        strength: 5
-        duration: 60
-      speed:
-        strength: 5
-        duration: 60
-    messageOnEat: 'SUGAR RUSH!'
-    messageInsufficient: 'Your odd sugar cravings have not been realised'
-    messageUnable: 'No raw sugar for you. Its bad for your teeth'
-  goldmelon:
-    enabled: true
+    takeInsufficientItems: true
     healFoodAmount: 0
-    healHealthAmount: 20
+    healHealthAmount 0 
+    itemAmount: 15
+    potionEffects:
+      confusion:
+        strength: 6
+        duration: 300
+    messageOnEat: '&kYo&ru are s&3o fli&kpp&4in&ig hi&2gh  
+    messageInsufficient: 'Wasn't I supposed to start hallucinating? Maybe try a dose of 15'
+    messageUnable: 'You don''t want to do drugs'
+    blacklist: 
+      - 54
+      - 64
+      - 77
+      - 143
+      - 69
+      - 96
+      - 107
+      - 88
+      - 61
+      - 62
+      - 117
+      - 145
+  goldencarrot:
+    data:
+      id: 396
+      dmg: 0
+    enabled: true
+    takeInsufficientItems: false
+    healFoodAmount: 0
+    healHealthAmount: 3
+    itemAmount: 2
+    potionEffects:
+      night_vision:
+        strength: 2
+        duration: 60
+      invisibility:
+        strength: 2
+        duration: 60
+    messageOnEat: 'The miraculous powers of the carrot flow into you, as you see the world with sharper eyes, and feel your body vanish'
+    messageInsufficient: 'You bite into the carrot, but the infused gold render it inedible. Reverse logic dictates you must eat more'
+    messageUnable: 'The powers of the carrot may not be bestowed upon you, young one'
+        blacklist: 
+      - 54
+      - 64
+      - 77
+      - 143
+      - 69
+      - 96
+      - 107
+      - 61
+      - 62
+      - 117
+      - 145
+  goldenmelon:
+    data:
+      id: 382
+      dmg: 0
+    enabled: true
+    takeInsufficientItems: false
+    healFoodAmount: 0
+    healHealthAmount: 0
     itemAmount: 1
     potionEffects:
       regeneration:
-        strength: 4
+        strength: 2
         duration: 60
-    messageOnEat: 'Golden watermelon juice washes over you, rejuevinating you.'
-    messageInsufficient: 'You feel as if you need more'
-    messageUnable: 'What? You cant afford to eat that!'
+    messageOnEat: 'Your body warms, as you feel new strength pour in you'
+    messageInsufficient: 'You bite into the melon, but the infused gold render it inedible. Reverse logic dictates you must eat more'
+    messageUnable: 'A mysterious force surrounding the slice prevents your mouth from making contact with it''s golden juice'
+    blacklist: 
+      - 54
+      - 64
+      - 77
+      - 143
+      - 69
+      - 96
+      - 107
+      - 61
+      - 62
+      - 117
+      - 145
   sugarcane:
-    enabled: false
-    itemAmount: 8
-    potionEffects: 
+    data:
+      id: 338
+      dmg: 0
+    enabled: true
+    takeInsufficientItems: true
+    healFoodAmount: 0
+    healHealthAmount: 0
+    itemAmount: 10
+    potionEffects:
       jump:
-        strength: 1
+        strength: 2
         duration: 20
       speed:
-        strength: 1
-        duration: 20 
-    messageOnEat: 'Chewing sugarcane is awesome!'
-    messageInsufficient: 'You need more to get enough sugarcane juice out of it'
-    messageUnable: 'No sugar for you. Its bad for your teeth'
+        strength: 2
+        duration: 20
+    messageOnEat: 'The cooling sugarcane juice reinvigorates you'
+    messageInsufficient: 'This is not enough sugarcane to make even a cup of juice!'
+    messageUnable: 'A mysterious force surrounding the slice prevents your mouth from making contact with it''s golden juice'
+    blacklist: 
+      - 54
+      - 64
+      - 77
+      - 143
+      - 69
+      - 96
+      - 107
+      - 61
+      - 62
+      - 117
+      - 145
+      - 2
+      - 3
+      - 12
   brownmushroom:
+    data:
+      id: 39
+      dmg: 0
     enabled: false
+    takeInsufficientItems: true
+    healFoodAmount: 0
+    healHealthAmount: 0
     itemAmount: 1
-    potionEffects: 
+    potionEffects:
       poison:
-        strength: 2
-        duration: 10
-      confusion:
-        strength: 10
-        duration: 10
-    messageOnEat: 'Brown mushrooms are poisonous unless cooked'
-    messageInsufficient: 'Nope'
-    messageUnable: 'Why would you want to eat this anyways?'
+        strength: 1
+        duration: 20
+    messageOnEat: 'You''re supposed to &ocook&r the mushrooms before eating them!'
+    messageInsufficient: 'Good thing you didn''t eat you much, you could have gotten sick'
+    messageUnable: 'Something is preventing you from eating the mushroom. Probably the permissions system.'
+    blacklist: 
+      - 54
+      - 64
+      - 77
+      - 143
+      - 69
+      - 96
+      - 107
+      - 61
+      - 62
+      - 117
+      - 145
+      - 2
+      - 3
+      - 12
+      - 1
+      - 110
   redmushroom:
+    data:
+      id: 40
+      dmg: 0
     enabled: false
+    takeInsufficientItems: true
+    healFoodAmount: 0
+    healHealthAmount: 0
     itemAmount: 1
-    potionEffects: 
-      poison:
-        strength: 2
-        duration: 10
-      confusion:
-        strength: 10
-        duration: 10
-    messageOnEat: 'Red mushrooms are poisonous unless coocked'
-    messageInsufficient: 'Nope'
-    messageUnable: 'Why would you want to eat this anyways?'
+    potionEffects:
+      nausea:
+        strength: 1
+        duration: 20
+    messageOnEat: 'You''re supposed to &ocook&r the mushrooms before eating them!'
+    messageInsufficient: 'Good thing you didn''t eat you much, you could have gotten sick'
+    messageUnable: 'Something is preventing you from eating the mushroom. Probably the permissions system.'
+    blacklist: 
+      - 54
+      - 64
+      - 77
+      - 143
+      - 69
+      - 96
+      - 107
+      - 61
+      - 62
+      - 117
+      - 145
+      - 2
+      - 3
+      - 12
+      - 1
+      - 110
 #Do not change
 #This section is for reference only.
 validPotionEffects:

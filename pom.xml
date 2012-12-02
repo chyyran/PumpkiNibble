@@ -5,7 +5,7 @@
 	<artifactId>pumpkinibble</artifactId>
 	<version>0.0.5-SNAPSHOT</version>
 	<name>PumpkiNibble</name>
-	<description>PumpkiNibble lets you eat pumpkin seeds in Minecraft!</description>
+	<description>PumpkiNibble lets you eat pumpkin seeds and more in Minecraft!</description>
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
@@ -52,7 +52,7 @@
 		<dependency>
 			<groupId>org.bukkit</groupId>
 			<artifactId>bukkit</artifactId>
-			<version>1.3.2-R1.1-SNAPSHOT</version>
+			<version>1.4.5-R0.3-SNAPSHOT</version>
 			<scope>compile</scope>
 		</dependency>
 	</dependencies>

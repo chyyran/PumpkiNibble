@@ -16,7 +16,9 @@ public class PumpkiNibbleCommand implements CommandExecutor
 
 	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args)
 	{
-		sender.sendMessage("This command has been disabled for now");
+		
+		PumpkiNibbleMain.p.reloadConfig();
+		sender.sendMessage("[PumpkiNibble] Configuration has been reloaded");
 		return true;
 	}
 }
