@@ -81,7 +81,7 @@ items:
     enabled: false
     takeInsufficientItems: true
     healFoodAmount: 0
-    healHealthAmount 0 
+    healHealthAmount: 0 
     itemAmount: 15
     potionEffects:
       confusion:
