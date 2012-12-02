@@ -1,0 +1,3 @@
+[submodule "javadocs"]
+	path = javadocs
+	url = git://github.com/ron975/PumpkiNibble-Javadoc.git
