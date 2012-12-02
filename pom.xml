@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>net.mystia</groupId>
 	<artifactId>pumpkinibble</artifactId>
-	<version>0.0.5-SNAPSHOT</version>
+	<version>1.0.0-SNAPSHOT</version>
 	<name>PumpkiNibble</name>
 	<description>PumpkiNibble lets you eat pumpkin seeds and more in Minecraft!</description>
 	<properties>
